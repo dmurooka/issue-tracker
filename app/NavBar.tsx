@@ -73,7 +73,7 @@ const NavBar = () => {
             {status === "unauthenticated" && (
               <Link href="/api/auth/signin">Login</Link>
             )}
-          </Box>{" "}
+          </Box>
         </Flex>
       </Container>
     </nav>
