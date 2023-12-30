@@ -7,14 +7,14 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
-const AssgineeSelect = ({ issue }: { issue: Issue }) => {
+const AssigneeSelect = ({ issue }: { issue: Issue }) => {
   const { data: users, error, isLoading } = useUsers();
 
   if (isLoading) return <Skeleton />;
 
   if (error) return null;
 
-  const assignIssue = (userId: String) => {
+  const assignIssue = (userId: string) => {
     axios
       .patch("/api/issues/" + issue.id, {
         assignedToUserId: userId || null,
@@ -34,7 +34,7 @@ const AssgineeSelect = ({ issue }: { issue: Issue }) => {
         <Select.Content>
           <Select.Group>
             <Select.Label>Suggestions</Select.Label>
-            <Select.Item value="">Unassgined</Select.Item>
+            <Select.Item value="">Unassigned</Select.Item>
             {users?.map((user) => (
               <Select.Item key={user.id} value={user.id}>
                 {user.name}
@@ -51,9 +51,10 @@ const AssgineeSelect = ({ issue }: { issue: Issue }) => {
 const useUsers = () =>
   useQuery<User[]>({
     queryKey: ["users"],
-    queryFn: () => axios.get("/app/users").then((res) => res.data),
-    staleTime: 60 * 1000, // 60s
+    queryFn: () =>
+      axios.get("/api/users").then((res) => res.data),
+    staleTime: 60 * 1000, //60s
     retry: 3,
   });
 
-export default AssgineeSelect;
+export default AssigneeSelect;

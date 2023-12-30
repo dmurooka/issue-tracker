@@ -15,7 +15,6 @@ import {
   Flex,
   Text,
 } from "@radix-ui/themes";
-import { Status } from "@prisma/client";
 
 const NavBar = () => {
   return (
@@ -40,7 +39,7 @@ const NavLinks = () => {
 
   const links = [
     { label: "Dashboard", href: "/" },
-    { label: "issues", href: "/issues/list" },
+    { label: "Issues", href: "/issues/list" },
   ];
 
   return (
@@ -92,7 +91,7 @@ const AuthStatus = () => {
             <Text size="2">{session!.user!.email}</Text>
           </DropdownMenu.Label>
           <DropdownMenu.Item>
-            <Link href="/api/auth/signout">Logout</Link>
+            <Link href="/api/auth/signout">Log out</Link>
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Root>

@@ -1,6 +1,6 @@
-import React from "react";
-import { Box } from "@radix-ui/themes";
-import { Skeleton } from "@/app/components";
+import { Box } from '@radix-ui/themes';
+import React from 'react';
+import { Skeleton } from '@/app/components';
 
 const IssueFormSkeleton = () => {
   return (
